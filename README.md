@@ -1,6 +1,6 @@
 # Exam2207
 //Sual 3: 
-Primary constructor class adını təyin edərkən class adının yanında müəyyən edilir və yalnız class-daki dəyişənlərə ilkin qiymətlər vermək üçün istifadə olunur. Biz primary konstruktorda kod yaza bilmirik.
+Primary constructor class adını təyin edərkən class adının yanında olur və yalnız class-daki dəyişənlərə ilkin qiymətlər vermək üçün istifadə olunur. Biz primary konstruktorda kod yaza bilmirik.
 **Case 1: Basic Primary Constructor:**
 class Person(val name: String, val age: Int) {
     // Class body
@@ -57,28 +57,27 @@ var age: Int? = null
 Yuxarıdakı nümunədə, age dəyişəni Int tipindədir, lakin ? işarəsi ilə nullable edilib. Bu deməkdir ki, age dəyişəni bir tam ədəd daşıya bilər və ya heç bir dəyəri olmayaraq (null) qala bilər.
 
 //Sual 11:
-1.	onCreate: Activity bir tətbiqetmə içində açıldığında yaradılır. Bu mərhəldə "onCreate" metodu çağırılır. 
-2.	onStart: Activity istifadəçi üçün görünür.
-3.	onResume: Activity istifadəçi tərəfindən aktiv edilir. "onResume" metodu çağırılır.
-4.	onPause: Istifadəçinin məlumatları saxlamaq, müvəqqəti vəziyyətləri saxlamaq və ya arxa planda işləyən prosesləri dayandırmaq kimi proseslər onPause() funksiyasında yerinə yetirilə bilər.
-5.	onStop: Activity ekranın tərkibindən tamamilə gizlənir və aktiv olmur. Bu mərhələdə "onStop" metodu çağırılır. 
-6.	onRestart: Activity "onStop" mərhələsindən sonra yenidən aktiv olur və istifadəçi tərəfindən yenidən başladılır. Bu mərhələdə "onRestart" və "onStart" metodları çağırılır və aktivlik yenidən ekranda görünür.
-7.	onDestroy: Activity artıq tətbiqetmənin bir hissəsi olmur və sistem tərəfindən dağıdılır. Bu mərhələdə "onDestroy" metodu çağırılır və aktivlik ləğv olur. Burada activity ilə bağlı bütün yaddaş və buna bənzər resurslar təmizlənir.
+1.	onCreate: Activity ilk işə düşəndə yaranır. Bu mərhəldə "onCreate" metodu çağırılır. Hər bir app-də olmalı olan önəmli metodlardan biridir.
+2.	onStart: Application-u açanda onCreate() methodundan sonra işə düşən metoddur.Bura istifadəçinin gördüyü UI olan hissədir.Bu metod çok sürətli şəkildə baş verib, davamında onResume() metoduna öz yerini verir.
+3.	onResume: Activity onResume() metoduna girdiyində application ön plana gəlir.Bu metod istifadəçi ilə qarşılıqlı əlaqədə olmağa imkan verir.
+4.	onPause: Sistem application-un hər hansı bir səbəbdən bağlandığını bildirdiyi zaman işə düşür.Yəni app-imiz arxaplana atıldığı zaman ,zəng gəldiyi zaman ya da başqa bir app açıldığı zaman bu method işə düşür.
+5.	onStop:  sistem arxaplandan silindiyində ya da başqa bir səbəbdən bağlandığında onStop() metodu işə düşür.
+7.	onDestroy: Activity artıq app-in bir hissəsi olmur və sistem tərəfindən dağıdılır. Bu mərhələdə "onDestroy" metodu çağırılır. Burada activity ilə bağlı bütün yaddaş və buna bənzər resurslar təmizlənir.
 
 //Sual 12: 
-AndroidManifest, Android tətbiqetməsinin əsas konfiqurasiya faylıdır. Bu faylda, tətbiqetmənin tələbləri, davranışları və digər məlumatları təyin edilir. AndroidManifest.xml adı altında "xml" formatında yaradılır. AndroidManifest, tətbiqetmənin sistem və digər tətbiqetmələrlə uyğun şəkildə fasiləsiz işləyə biləcəyi təmin edir. Bu faylda aşağıdakı əsas elementlər mövcuddur:
-1.	package: Tətbiqetmənin adıdır və Android cihazında tətbiqetməni birbaşa təyin edir.
-2.	uses-sdk: Tətbiqetmənin tələb etdiyi minimal və maximal Android API səviyyəsini bildirir.
-3.	application: Tətbiqetmənin əsas tənzimləmələrini və xüsusiyyətlərini təyin edir. Burada tətbiqetmənin icra zamanı icazələri, tema və stilleri, tətbiqetmə loqosu, tətbiqetmə məlumatları kimi məlumatlar yer alır.
-4.	activity: Tətbiqetmədə bir activity-nin təyinatı, adı, iconu, icazələri, mövcudluğu və daha çox məlumatı təyin edir. 
-5.	service: Tətbiqetmədə bir servisin təyinatı, adı, iconu, icazələri, mövcudluğu və daha çox məlumatı təyin edir. 
+AndroidManifest, Android-in əsas konfiqurasiya faylıdır. Bu faylda, app-in tələbləri və digər məlumatları təyin edilir. AndroidManifest.xml adı altında "xml" formatında yaradılır. AndroidManifest, app-in sistem və digər application-larla uyğun şəkildə fasiləsiz işləyə biləcəyi mühit təmin edir. Bu faylda aşağıdakı əsas elementlər mövcuddur:
+1.	package: App-in adıdır və Android cihazında tətbiqi birbaşa təyin edir.
+2.	uses-sdk:App-in tələb etdiyi minimal və maximal Android API səviyyəsini bildirir.
+3.	application: App-in əsas tənzimləmələrini və xüsusiyyətlərini təyin edir. Burada icra zamanı icazələri, tema və stilleri, loqo, app məlumatları kimi məlumatlar yer alır.
+4.	activity: App-də bir activity-nin təyinatı, adı, iconu, icazələri, mövcudluğu və daha çox məlumatı təyin edir. 
+5.	service: App-də bir servisin təyinatı, adı, iconu, icazələri, mövcudluğu və daha çox məlumatı təyin edir. 
 
 //Sual 13: 
-Intent, Android tətbiqetmələrində fərqli activity-ler və ya proseslər arasında məlumatların ötürülməsi üçün istifadə olunan bir obyektdir. 
+Intent, Android application-larında fərqli activity-ler və ya proseslər arasında məlumatların ötürülməsi üçün istifadə olunan bir obyektdir. 
 İki növ Intent mövcuddur:
-1.	Explicit Intent : Bu tip Intent, tətbiqetmə daxilində bir aktivliyi başlatmaq və ya bir servisə əmr göndərmək üçün istifadə olunur. Intent-də aktivlik və ya servisin adı açıq şəkildə təyin edilir və məqsəd müəyyən bir aktivlikdən başqa bir aktivliyə keçid etməkdir.
-2.	Implicit Intent : Bu tip Intent,tətbiqetmə içindən xarici bir komponenti çağırmaq üçün istifadə olunur. 
-Intent-lər məlumatları təmsil etmək üçün putExtra və getExtra metodları ilə birləşdirilə bilər. Məsələn, bir aktivlikdən başqa bir aktivliyə məlumat ötürmək üçün, bir Intent yaradılır və putExtra metodları vasitəsilə məlumatlar Intent-ə əlavə edilir. Sonra, Intent activity başlatmaq üçün startActivity metodu ilə tətbiq olunur.
+1.	Explicit Intent : Bu tip Intent, tətbiq daxilində bir activity başlatmaq və ya bir servisə əmr göndərmək üçün istifadə olunur. Intent-də activity və ya servisin adı açıq şəkildə təyin edilir və məqsəd müəyyən bir activity-dən başqa bir activity-ə keçid etməkdir.
+2.	Implicit Intent : Bu tip Intent,tətbiq içindən xarici bir komponenti çağırmaq üçün istifadə olunur. 
+Intent-lər məlumatları təmsil etmək üçün putExtra və getExtra metodları ilə birləşdirilə bilər. Məsələn, bir activity-dən başqa bir activity-ə məlumat ötürmək üçün, bir Intent yaradılır və putExtra metodları vasitəsilə məlumatlar Intent-ə əlavə edilir. Sonra, Intent activity başlatmaq üçün startActivity metodu ilə tətbiq olunur.
 
 //Sual 14: 
 1.	LinearLayout : Bu layout elementləri sıralı bir xətt üzərində düzəldir. Elementlər, təyin olunan sıra ilə yanaşı (üfüqi) və ya alt-alta (şaquli olaraq) düzəlir.
